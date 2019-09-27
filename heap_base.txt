@@ -1,0 +1,17 @@
+[anon:libc_malloc]	EA180000	EA300000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	E2480000	E2500000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	E2180000	E2200000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	E0A80000	E0B00000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	DF800000	DF880000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CFF00000	CFF80000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CFC00000	CFC80000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CF980000	CFB00000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CED00000	CF000000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CC880000	CC900000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CC680000	CC700000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CBD80000	CBE00000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CB480000	CB580000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	CA080000	CA100000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	C9580000	C9680000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	C8100000	C9080000	R	W	.	D	.	byte	00	public	DATA	32	00	00
+[anon:libc_malloc]	C7180000	C7380000	R	W	.	D	.	byte	00	public	DATA	32	00	00
