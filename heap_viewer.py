@@ -7,11 +7,15 @@ import argparse
 parser = argparse.ArgumentParser(prog="heap_viewer.py", description="IDA Segments Heap Viewer")
 parser.add_argument("-f", dest="heap_base", required=True, help="IDA Segment Export")
 parser.add_argument("-o", dest="output_file", required=True, help="Output File")
-parser.add_argument('--segment', dest="sp2seg", action='store_false', default=True, help="Hide space between two segment information")
+parser.add_argument("--segment", dest="sp2seg", action="store_false", default=True, help="Hide space between two segment information")
 args = parser.parse_args()
 heap_base=args.heap_base
 output=args.output_file
 sp2seg=args.sp2seg
+### From IDA
+#for ea in Segments():
+#    print '%x-%x'%(SegStart(ea),SegEnd(ea))
+###
 # grab segments start addresses
 start = "cat "+heap_base+" | cut -f 2 > /tmp/start.txt"
 os.system(start)
@@ -24,10 +28,10 @@ start_addr=[]
 end_addr=[]
 for line_s in start:
     start_addr.append(int(line_s.rstrip("\n"), 16))
+print("Start addresses: ")
+print([hex(a) for a in start_addr])
 for line_e in end:
     end_addr.append(int(line_e.rstrip("\n"), 16))
-#Debug
-#print(start_addr)
 #print(end_addr)
 s_size=[]
 i=0
@@ -35,7 +39,8 @@ for s_addr in start_addr:
     # segment size (segment end address - start address)
     s_size.append(end_addr[i]-s_addr)
     i=i+1
-#print(s_size)
+print("Addresses Size: ")
+print([hex(a) for a in s_size])
 space2segment=[]
 start=0
 while start<len(start_addr)-1: 
@@ -54,8 +59,8 @@ print("-------------------------------------------------------------------------
 print("|\tseg n.\t|\tstart\t\t|\tend\t\t|\tsize")
 print("-----------------------------------------------------------------------------------------------")
 while i<len(start_addr):
-    f.write("|\t"+str(i)+"\t|\t"+str(hex(start_addr[i])).rstrip("L")+"\t|\t"+str(hex(end_addr[i])).rstrip("L")+"\t|\t"+str(s_size[i])+"\t|\n")
-    print("|\t"+str(i)+"\t|\t"+str(hex(start_addr[i])).rstrip("L")+"\t|\t"+str(hex(end_addr[i])).rstrip("L")+"\t|\t"+str(s_size[i]))
+    f.write("|\t"+str(i)+"\t|\t"+str(hex(start_addr[i])).rstrip("L")+"\t|\t"+str(hex(end_addr[i])).rstrip("L")+"\t|\t"+str(hex(s_size[i]))+"\t|\n")
+    print("|\t"+str(i)+"\t|\t"+str(hex(start_addr[i])).rstrip("L")+"\t|\t"+str(hex(end_addr[i])).rstrip("L")+"\t|\t"+str(hex(s_size[i])))
     if sp2seg is True:
         if (i<len(space2segment)):
             f.write("|\t"+str(space2segment[i])+"\t|\n")
@@ -64,4 +69,4 @@ while i<len(start_addr):
             print("-----------------------------------------------------------------------------------------------")
     i+=1
 f.close()
-print("\n[>] Output file: "+output)
+print("\n[>] Output file: "+os.getcwd()+"/"+output)
