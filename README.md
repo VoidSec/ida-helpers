@@ -50,3 +50,5 @@ offset(base addr - function addr)= FF90
 
 func addr = (offset + base addr)
 ```
++ P/P/R
+Find pop pop ret gadgets
