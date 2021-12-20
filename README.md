@@ -1,7 +1,7 @@
 # ida-helpers
 Collection of IDA helpers
 
-+ Heap Viewer
+## Heap Viewer
 
 Heap viewer will parse an "IDA Segment Export" data `heap_base.txt` and will produce a table with the following details:
 	+ segment n.
@@ -33,10 +33,10 @@ This will be the output file format:
 -----------------------------------------------------------------------------------------------[18874368]
 ```
 
-+ Segment Dumper
+## Segment Dumper
 To use in conjunction with `Heap Viewer`, copy and paste the output address list and size from `Heap Viewer` inside `Segment Dumper` and load it into IDA, it will dump the relative segment from the memory saving it as a .bin file in the hardcoded folder.
 
-+ Base Address
+## Base Address
 
 Replace the path of the desired library, insert function names in `f_name` and respective offset in `f_addr`. The script will pull library base address from IDA and calculate the final addresses for every listed functions, setting a software breakpoint to the respective address.
 
@@ -50,5 +50,8 @@ offset(base addr - function addr)= FF90
 
 func addr = (offset + base addr)
 ```
-+ P/P/R
+## P/P/R
 Find pop pop ret gadgets
+
+## Func Complexity
+Print out an ordererd list of functions, from the least complex to the most one (based on the number of basic blocks)
