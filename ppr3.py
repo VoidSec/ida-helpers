@@ -1,8 +1,3 @@
-"""
-POP-POP-RET gadget finder ported to Pyhton 3 and IDA Pro 7.7 
-Author: Paolo 'VoidSec' Stagno 
-"""
-
 import idaapi
 import idautils
 import idc
@@ -33,7 +28,7 @@ def main():
             start_addr = idc.get_segm_start(ea)
             end_addr = idc.get_segm_end(ea)
             print(
-                f"{name} segment start at 0x{start_addr:08X} - end at {end_addr:08X}; size: {end_addr - start_addr} bytes")
+                f"{name} segment start at 0x{start_addr:08X} - end at 0x{end_addr:08X}; size: {end_addr - start_addr} bytes")
             while start_addr < end_addr and start_addr != idaapi.BADADDR:
                 op1 = idc.print_insn_mnem(start_addr)
                 if op1 == "pop":
@@ -51,8 +46,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-	
