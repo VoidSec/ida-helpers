@@ -16,7 +16,7 @@ def display(start):
         byte3 = idautils.Assemble(start + 2, "ret " + mnem3)
 
     print(
-        f"- 0x{start:08X}: pop {mnem1}; pop {mnem2}; retn {mnem3}; \\x{ord(byte1[1]):02x}\\x{ord(byte2[1]):02x}{byte3[1]}")
+        f"- 0x{start:08X}: pop {mnem1}; pop {mnem2}; ret {mnem3}; \\x{ord(byte1[1]):02x}\\x{ord(byte2[1]):02x}{byte3[1]}")
 
 
 def main():
